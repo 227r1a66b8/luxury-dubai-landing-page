@@ -1,4 +1,4 @@
-# dubai-mall-deck
+# Dubai Mall
 
 This is a [Next.js](https://nextjs.org) project bootstrapped 
 
