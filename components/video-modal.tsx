@@ -10,7 +10,7 @@ interface VideoModalProps {
   videoUrl?: string
 }
 
-export function VideoModal({ isOpen, onClose, videoUrl = "https://cdn.coverr.co/videos/coverr-dubai-downtown-7847/1080p.mp4" }: VideoModalProps) {
+export function VideoModal({ isOpen, onClose, videoUrl = "https://youtu.be/J7eyLddWUOI?si=oYs8geICno105OCY" }: VideoModalProps) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden"
@@ -57,16 +57,16 @@ export function VideoModal({ isOpen, onClose, videoUrl = "https://cdn.coverr.co/
           >
             {/* Glow Effect */}
             <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-3xl" />
-            
+
             <div className="relative w-full h-full glass-strong rounded-2xl overflow-hidden">
-              <video
-                autoPlay
-                controls
-                className="w-full h-full object-cover"
-                src={videoUrl}
-              >
-                <source src={videoUrl} type="video/mp4" />
-              </video>
+              <iframe
+                className="w-full h-full rounded-3xl"
+                src="https://www.youtube.com/embed/J7eyLddWUOI?autoplay=1"
+                title="Dubai Mall Experience"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </div>
           </motion.div>
 
