@@ -11,42 +11,25 @@ const navLinks = [
   { name: "Experiences", href: "#experiences" },
   { name: "Dining", href: "#dining" },
   { name: "Events", href: "#events" },
-<<<<<<< HEAD
   { name: "Sponsorship", href: "#sponsorship" },
   { name: "Leasing", href: "#leasing" },
-  { name: "Infrastructure", href: "#infrstructure" },
-=======
->>>>>>> 4bbacda42293890e6eeadc849801b88ae9e639b0
+  { name: "Infrastructure", href: "#infrastructure" },
   { name: "Business", href: "#business" },
 ]
 
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
-  const [isHovered, setIsHovered] = useState(false)
-
+function NavLink({
+  href,
+  children,
+}: {
+  href: string
+  children: React.ReactNode
+}) {
   return (
     <Link
       href={href}
-      className="relative px-5 py-2 text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-full group"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className="relative px-5 py-2 text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-full"
     >
       {children}
-      <motion.span
-        className="absolute inset-0 rounded-full bg-white/5"
-        initial={false}
-        animate={{ opacity: isHovered ? 1 : 0 }}
-        transition={{ duration: 0.2 }}
-      />
-      <motion.span
-        className="absolute inset-0 rounded-full"
-        initial={false}
-        animate={{
-          boxShadow: isHovered
-            ? "0 0 20px rgba(212,175,85,0.3), inset 0 0 20px rgba(212,175,85,0.1)"
-            : "0 0 0 rgba(212,175,85,0)",
-        }}
-        transition={{ duration: 0.3 }}
-      />
     </Link>
   )
 }
@@ -59,7 +42,9 @@ export function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
+
     window.addEventListener("scroll", handleScroll)
+
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -68,29 +53,15 @@ export function Navigation() {
       <motion.header
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.8 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "py-3" : "py-6"
           }`}
       >
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.nav
-<<<<<<< HEAD
-            className="flex items-center justify-between transition-all duration-500"
-          >
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <motion.nav className="flex items-center justify-between gap-6">
+
             {/* Logo */}
-            <Link href="/" className="relative z-10 mr-6 shrink-0">
-=======
-            className={`flex items-center justify-between rounded-2xl transition-all duration-500 ${isScrolled ? "glass-strong px-6 py-3 shadow-[0_0_40px_rgba(0,0,0,0.3)]" : ""
-              }`}
-            animate={{
-              boxShadow: isScrolled
-                ? "0 0 40px rgba(0,0,0,0.3), inset 0 0 60px rgba(255,255,255,0.03)"
-                : "none",
-            }}
-          >
-            {/* Logo */}
-            <Link href="/" className="relative z-10">
->>>>>>> 4bbacda42293890e6eeadc849801b88ae9e639b0
+            <Link href="/" className="relative z-10 shrink-0">
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 className="flex flex-col items-start group"
@@ -98,30 +69,16 @@ export function Navigation() {
                 <span className="font-serif text-2xl font-light tracking-[0.2em] text-foreground group-hover:text-primary transition-colors duration-300">
                   DUBAI
                 </span>
-<<<<<<< HEAD
 
                 <span className="text-[10px] tracking-[0.4em] text-muted-foreground uppercase">
                   Mall
                 </span>
-
-=======
-                <span className="text-[10px] tracking-[0.4em] text-muted-foreground uppercase">
-                  Mall
-                </span>
->>>>>>> 4bbacda42293890e6eeadc849801b88ae9e639b0
-                <motion.span
-                  className="absolute -inset-4 rounded-lg"
-                  initial={false}
-                  whileHover={{
-                    boxShadow: "0 0 30px rgba(212,175,85,0.2)",
-                  }}
-                />
               </motion.div>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1">
-              <div className="glass rounded-full px-2 py-2 flex items-center gap-1 border border-white/5 shadow-[inset_0_0_30px_rgba(255,255,255,0.03)]">
+            <div className="hidden lg:flex flex-1 justify-center">
+              <div className="glass rounded-full px-3 py-2 flex items-center gap-1 border border-white/10">
                 {navLinks.map((link) => (
                   <NavLink key={link.name} href={link.href}>
                     {link.name}
@@ -130,33 +87,25 @@ export function Navigation() {
               </div>
             </div>
 
-            {/* Desktop CTA */}
-<<<<<<< HEAD
-            <div className="hidden lg:flex items-center ml-6 shrink-0">
-=======
-            <div className="hidden lg:flex items-center gap-4">
->>>>>>> 4bbacda42293890e6eeadc849801b88ae9e639b0
+            {/* CTA */}
+            <div className="hidden lg:flex shrink-0">
               <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
               >
                 <Link
                   href="#plan-visit"
-<<<<<<< HEAD
-                  className="glass px-5 py-3 rounded-full text-sm tracking-wide text-foreground hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-primary/30 hover:shadow-[0_0_20px_rgba(212,175,85,0.2)] whitespace-nowrap"
-=======
-                  className="glass px-6 py-3 rounded-full text-sm tracking-wide text-foreground hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-primary/30 hover:shadow-[0_0_20px_rgba(212,175,85,0.2)]"
->>>>>>> 4bbacda42293890e6eeadc849801b88ae9e639b0
+                  className="glass px-6 py-3 rounded-full text-sm tracking-wide text-foreground hover:bg-white/10 transition-all duration-300 border border-white/10 whitespace-nowrap"
                 >
                   Plan Your Visit
                 </Link>
               </motion.div>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Button */}
             <motion.button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden relative z-10 p-3 glass rounded-full text-foreground hover:bg-white/10 transition-colors"
+              className="lg:hidden relative z-10 p-3 glass rounded-full text-foreground"
               aria-label="Toggle menu"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -174,78 +123,38 @@ export function Navigation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background/98 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl lg:hidden"
           >
-            {/* Background Animation */}
-            <div className="absolute inset-0 overflow-hidden">
-              {[...Array(5)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-96 h-96 rounded-full bg-primary/5"
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 2, opacity: 0.3 }}
-                  transition={{ delay: i * 0.1, duration: 1 }}
-                  style={{
-                    left: `${20 + i * 15}%`,
-                    top: `${10 + i * 20}%`,
-                  }}
-                />
+            <div className="flex flex-col items-center justify-center h-full gap-8">
+
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="font-serif text-4xl text-foreground hover:text-primary transition-colors"
+                >
+                  {link.name}
+                </Link>
               ))}
-            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="relative flex flex-col justify-center items-center h-full px-6"
-            >
-              <nav className="flex flex-col items-center gap-8">
-                {navLinks.map((link, index) => (
-                  <motion.div
-                    key={link.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.1 + index * 0.05 }}
-                  >
-                    <Link
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="font-serif text-4xl font-light tracking-wide text-foreground hover:text-primary transition-colors relative group"
-                    >
-                      {link.name}
-                      <motion.span
-                        className="absolute -bottom-2 left-0 h-[2px] bg-primary"
-                        initial={{ width: 0 }}
-                        whileHover={{ width: "100%" }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    </Link>
-                  </motion.div>
-                ))}
-              </nav>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.4, delay: 0.4 }}
-                className="mt-16 flex flex-col items-center gap-4 text-muted-foreground text-sm"
-              >
+              <div className="mt-10 flex flex-col items-center gap-4 text-muted-foreground text-sm">
                 <div className="flex items-center gap-2">
-                  <Clock size={14} className="text-primary" />
+                  <Clock size={14} />
                   <span>Open Daily 10AM - 12AM</span>
                 </div>
+
                 <div className="flex items-center gap-2">
-                  <MapPin size={14} className="text-primary" />
+                  <MapPin size={14} />
                   <span>Downtown Dubai</span>
                 </div>
+
                 <div className="flex items-center gap-2">
-                  <Phone size={14} className="text-primary" />
+                  <Phone size={14} />
                   <span>+971 4 XXX XXXX</span>
                 </div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
