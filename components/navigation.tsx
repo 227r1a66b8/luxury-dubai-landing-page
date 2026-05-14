@@ -11,9 +11,12 @@ const navLinks = [
   { name: "Experiences", href: "#experiences" },
   { name: "Dining", href: "#dining" },
   { name: "Events", href: "#events" },
+<<<<<<< HEAD
   { name: "Sponsorship", href: "#sponsorship" },
   { name: "Leasing", href: "#leasing" },
   { name: "Infrastructure", href: "#infrstructure" },
+=======
+>>>>>>> 4bbacda42293890e6eeadc849801b88ae9e639b0
   { name: "Business", href: "#business" },
 ]
 
@@ -71,10 +74,23 @@ export function Navigation() {
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.nav
+<<<<<<< HEAD
             className="flex items-center justify-between transition-all duration-500"
           >
             {/* Logo */}
             <Link href="/" className="relative z-10 mr-6 shrink-0">
+=======
+            className={`flex items-center justify-between rounded-2xl transition-all duration-500 ${isScrolled ? "glass-strong px-6 py-3 shadow-[0_0_40px_rgba(0,0,0,0.3)]" : ""
+              }`}
+            animate={{
+              boxShadow: isScrolled
+                ? "0 0 40px rgba(0,0,0,0.3), inset 0 0 60px rgba(255,255,255,0.03)"
+                : "none",
+            }}
+          >
+            {/* Logo */}
+            <Link href="/" className="relative z-10">
+>>>>>>> 4bbacda42293890e6eeadc849801b88ae9e639b0
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 className="flex flex-col items-start group"
@@ -82,11 +98,17 @@ export function Navigation() {
                 <span className="font-serif text-2xl font-light tracking-[0.2em] text-foreground group-hover:text-primary transition-colors duration-300">
                   DUBAI
                 </span>
+<<<<<<< HEAD
 
                 <span className="text-[10px] tracking-[0.4em] text-muted-foreground uppercase">
                   Mall
                 </span>
 
+=======
+                <span className="text-[10px] tracking-[0.4em] text-muted-foreground uppercase">
+                  Mall
+                </span>
+>>>>>>> 4bbacda42293890e6eeadc849801b88ae9e639b0
                 <motion.span
                   className="absolute -inset-4 rounded-lg"
                   initial={false}
@@ -109,14 +131,22 @@ export function Navigation() {
             </div>
 
             {/* Desktop CTA */}
+<<<<<<< HEAD
             <div className="hidden lg:flex items-center ml-6 shrink-0">
+=======
+            <div className="hidden lg:flex items-center gap-4">
+>>>>>>> 4bbacda42293890e6eeadc849801b88ae9e639b0
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <Link
                   href="#plan-visit"
+<<<<<<< HEAD
                   className="glass px-5 py-3 rounded-full text-sm tracking-wide text-foreground hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-primary/30 hover:shadow-[0_0_20px_rgba(212,175,85,0.2)] whitespace-nowrap"
+=======
+                  className="glass px-6 py-3 rounded-full text-sm tracking-wide text-foreground hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-primary/30 hover:shadow-[0_0_20px_rgba(212,175,85,0.2)]"
+>>>>>>> 4bbacda42293890e6eeadc849801b88ae9e639b0
                 >
                   Plan Your Visit
                 </Link>
