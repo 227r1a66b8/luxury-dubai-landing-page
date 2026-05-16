@@ -77,7 +77,7 @@ function HeroParticles() {
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
@@ -119,7 +119,7 @@ export function HeroSection() {
           {/* Enhanced overlay for text visibility */}
           <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/30 to-background z-10" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-background/50 z-10" />
-          
+
           <video
             autoPlay
             muted
@@ -153,7 +153,7 @@ export function HeroSection() {
 
         {/* Content */}
         <motion.div
-          style={{ opacity, y: textY, x: parallaxX, y: parallaxY }}
+          style={{ opacity, x: parallaxX, y: parallaxY }}
           className="relative z-20 flex flex-col items-center justify-center h-full px-6 text-center"
         >
           <motion.div
@@ -230,20 +230,40 @@ export function HeroSection() {
         </motion.div>
 
         {/* Scroll Indicator */}
+        {/* Luxury Mouse Scroll Indicator */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 2,
+            duration: 1,
+          }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
         >
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-3 text-foreground/60"
+            animate={{ y: [0, 8, 0] }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="flex flex-col items-center gap-4"
           >
-            <span className="text-xs tracking-[0.3em] uppercase">Scroll to Explore</span>
-            <div className="w-[1px] h-12 bg-gradient-to-b from-primary/50 to-transparent" />
-            <ChevronDown size={20} className="text-primary" />
+            <span className="text-[11px] tracking-[0.35em] uppercase text-primary/70">
+              Scroll To Explore
+            </span>
+
+            <div className="w-7 h-12 rounded-full border border-primary/50 flex justify-center items-start p-2 shadow-[0_0_25px_rgba(212,175,85,0.25)] backdrop-blur-sm">
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="w-1 h-3 rounded-full bg-primary"
+              />
+            </div>
           </motion.div>
         </motion.div>
 

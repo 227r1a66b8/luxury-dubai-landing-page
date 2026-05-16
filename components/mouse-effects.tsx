@@ -1,6 +1,5 @@
 "use client"
-
-import { useEffect, useState } from "react"
+import { useEffect, useState, useMemo } from "react"
 import { motion, useSpring, useMotionValue } from "framer-motion"
 
 export function MouseGlow() {
@@ -52,14 +51,19 @@ export function MouseGlow() {
 }
 
 export function FloatingParticles() {
-  const particles = Array.from({ length: 30 }, (_, i) => ({
-    id: i,
-    size: Math.random() * 4 + 1,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    duration: Math.random() * 20 + 15,
-    delay: Math.random() * 5,
-  }))
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 50 }, (_, i) => ({
+        id: i,
+        size: Math.random() * 3 + 1,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        duration: Math.random() * 15 + 10,
+        delay: Math.random() * 5,
+        moveX: Math.random() * 80 - 40,
+      })),
+    []
+  )
 
   return (
     <div className="fixed inset-0 pointer-events-none z-10 overflow-hidden">
@@ -75,7 +79,7 @@ export function FloatingParticles() {
           }}
           animate={{
             y: [0, -100, 0],
-            x: [0, Math.random() * 50 - 25, 0],
+            x: [0, particle.moveX, 0],
             opacity: [0.2, 0.6, 0.2],
           }}
           transition={{
